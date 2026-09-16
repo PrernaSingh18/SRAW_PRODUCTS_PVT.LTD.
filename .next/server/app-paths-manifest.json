@@ -1,0 +1,13 @@
+{
+  "/[lang]/about/page": "app/[lang]/about/page.js",
+  "/[lang]/bulk-order/page": "app/[lang]/bulk-order/page.js",
+  "/[lang]/cart/page": "app/[lang]/cart/page.js",
+  "/[lang]/contact/page": "app/[lang]/contact/page.js",
+  "/[lang]/dealership/page": "app/[lang]/dealership/page.js",
+  "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/shop/[slug]/page": "app/[lang]/shop/[slug]/page.js",
+  "/[lang]/shop/page": "app/[lang]/shop/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
+}

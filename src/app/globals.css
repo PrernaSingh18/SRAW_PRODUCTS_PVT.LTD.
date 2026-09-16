@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1c1030;
+  --color-ink-soft: #443660;
+  --color-muted: #776a8d;
+  --color-line: #e8e2ef;
+  --color-surface: #ffffff;
+  --color-sand: #fbf6ee;
+  --color-clay: #f6ebdb;
+  --color-brand: #d6440d;
+  --color-brand-dark: #a93109;
+  --color-brand-soft: #fdeae1;
+  --color-gold: #e8a413;
+  --color-leaf: #1f7a5a;
+
+  --font-sans: var(--font-noto-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-noto-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-hindi: var(--font-noto-devanagari), var(--font-noto-sans), sans-serif;
+
+  --radius-card: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: #fff;
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-rise {
+  animation: rise 0.5s ease-out both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes smoke {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) translateX(0) scaleY(0.85);
+  }
+  25% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.45;
+    transform: translateY(-10px) translateX(3px) scaleY(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-22px) translateX(-2px) scaleY(1.25);
+  }
+}
+
+@keyframes ember {
+  0%,
+  100% {
+    opacity: 1;
+    r: 4;
+  }
+  50% {
+    opacity: 0.55;
+    r: 5.5;
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-1.2deg);
+  }
+}
+
+@keyframes ash {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(26px);
+    opacity: 0;
+  }
+}
+
+.smoke-curl {
+  transform-origin: bottom center;
+  transform-box: fill-box;
+  animation: smoke 3.4s ease-in-out infinite;
+}
+
+.smoke-curl:nth-child(2) {
+  animation-delay: 0.9s;
+}
+
+.smoke-curl:nth-child(3) {
+  animation-delay: 1.8s;
+}
+
+.ember-dot {
+  animation: ember 1.6s ease-in-out infinite;
+}
+
+.ash-fleck {
+  animation: ash 3.6s linear infinite;
+}
+
+.ash-fleck:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.ash-fleck:nth-child(3) {
+  animation-delay: 2.4s;
+}
+
+@utility animate-sway {
+  animation: sway 5s ease-in-out infinite;
+}
+
+.stagger > * {
+  animation: rise 0.5s ease-out both;
+}
+.stagger > *:nth-child(2) {
+  animation-delay: 60ms;
+}
+.stagger > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+.stagger > *:nth-child(4) {
+  animation-delay: 180ms;
+}
+.stagger > *:nth-child(5) {
+  animation-delay: 240ms;
+}
+.stagger > *:nth-child(6) {
+  animation-delay: 300ms;
+}
+.stagger > *:nth-child(7) {
+  animation-delay: 360ms;
+}
+.stagger > *:nth-child(n + 8) {
+  animation-delay: 420ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

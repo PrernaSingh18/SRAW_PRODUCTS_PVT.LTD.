@@ -1,0 +1,13 @@
+{
+  "/[lang]/about/page": "/[lang]/about",
+  "/[lang]/bulk-order/page": "/[lang]/bulk-order",
+  "/[lang]/cart/page": "/[lang]/cart",
+  "/[lang]/contact/page": "/[lang]/contact",
+  "/[lang]/dealership/page": "/[lang]/dealership",
+  "/[lang]/page": "/[lang]",
+  "/[lang]/shop/[slug]/page": "/[lang]/shop/[slug]",
+  "/[lang]/shop/page": "/[lang]/shop",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico"
+}
