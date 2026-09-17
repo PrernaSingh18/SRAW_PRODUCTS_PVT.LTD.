@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ShopGrid } from "@/components/shop-grid";
 import { products } from "@/lib/products";
@@ -24,23 +25,36 @@ export default async function ShopPage({ params }: Params) {
   return (
     <>
       <section className="border-b border-line bg-sand">
-        <div className="container-page py-14">
-          <p className="text-xs font-semibold tracking-[0.18em] text-brand uppercase">
-            {dict.shop.eyebrow}
-            {dict.shop.eyebrowAccent ? (
-              <span className="font-hindi tracking-normal normal-case">
-                {" "}
-                · {dict.shop.eyebrowAccent}
-              </span>
+        <div className="container-page py-12 grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.18em] text-brand uppercase">
+              {dict.shop.eyebrow}
+              {dict.shop.eyebrowAccent ? (
+                <span className="font-hindi tracking-normal normal-case">
+                  {" "}
+                  · {dict.shop.eyebrowAccent}
+                </span>
+              ) : null}
+            </p>
+            <h1 className="mt-2 font-display text-4xl font-semibold sm:text-5xl">
+              {dict.shop.heading}
+            </h1>
+            {dict.shop.headingAccent ? (
+              <p className="mt-2 font-hindi text-xl text-brand">{dict.shop.headingAccent}</p>
             ) : null}
-          </p>
-          <h1 className="mt-2 font-display text-4xl font-semibold sm:text-5xl">
-            {dict.shop.heading}
-          </h1>
-          {dict.shop.headingAccent ? (
-            <p className="mt-2 font-hindi text-xl text-brand">{dict.shop.headingAccent}</p>
-          ) : null}
-          <p className="mt-4 max-w-2xl text-ink-soft">{dict.shop.intro}</p>
+            <p className="mt-4 max-w-2xl text-ink-soft">{dict.shop.intro}</p>
+          </div>
+
+          <div className="relative aspect-[21/9] lg:aspect-[16/9] overflow-hidden rounded-card border border-line shadow-sm">
+            <Image
+              src="/assets/Slide 5.jpg"
+              alt="Sri Kanth Puja Dhoop Sticks & Fragrance Range"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 

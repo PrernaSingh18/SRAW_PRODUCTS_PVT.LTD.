@@ -4,6 +4,7 @@ import { Noto_Sans, Noto_Sans_Devanagari } from "next/font/google";
 import "../globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { FloatingAction } from "@/components/floating-action";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n";
 
@@ -55,6 +56,7 @@ export default async function RootLayout({ params, children }: LayoutProps<"/[la
       <body className="flex min-h-full flex-col bg-white">
         <SiteHeader locale={lang} dict={dict} />
         <main className="flex-1">{children}</main>
+        <FloatingAction locale={lang} />
         <SiteFooter locale={lang} dict={dict} />
       </body>
     </html>
