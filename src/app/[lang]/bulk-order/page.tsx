@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { EnquiryForm } from "@/components/enquiry-form";
-import { ProductArt } from "@/components/product-art";
-import { getProduct } from "@/lib/products";
 import { getDictionary } from "@/lib/i18n";
 import { isLocale } from "@/lib/i18n/config";
 import { site } from "@/lib/site";
@@ -22,7 +21,6 @@ export default async function BulkOrderPage({ params }: Params) {
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
   const t = dict.bulk;
-  const carton = getProduct("chandan")!;
 
   return (
     <>
@@ -63,8 +61,15 @@ export default async function BulkOrderPage({ params }: Params) {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-card border border-line bg-white">
-            <ProductArt product={carton} view="carton" className="w-full" />
+          <div className="relative aspect-[16/11] w-full overflow-hidden rounded-card border border-line bg-white shadow-sm">
+            <Image
+              src="/assets/Slide 6.jpg"
+              alt="Sri Kanth Wholesale Master Cartons & Dhoop Boxes"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/add-to-cart";
 import { ProductGallery } from "@/components/product-gallery";
@@ -141,6 +142,20 @@ export default async function ProductPage({ params }: Params) {
           </p>
         </div>
       </section>
+
+      {product.bannerImage ? (
+        <section className="container-page pb-12">
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-card border border-line shadow-sm">
+            <Image
+              src={product.bannerImage}
+              alt={`${names.primary} Feature Showcase`}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </section>
+      ) : null}
 
       {related.length > 0 ? (
         <section className="border-t border-line bg-sand py-16">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -37,23 +38,19 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Dictionary 
       </div>
 
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Link href={localePath(locale, "/")} className="flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand font-hindi text-base font-bold text-white">
-            श्री
-          </span>
-          <span className="leading-tight">
-            <span className="block font-display text-base font-semibold">
-              {locale === "hi" ? site.brandHi : site.brand}{" "}
-              <span
-                className={`text-sm font-medium text-brand ${locale === "hi" ? "" : "font-hindi"}`}
-              >
-                {dict.common.accentBrand}
-              </span>
-            </span>
-            <span className="block text-[11px] tracking-[0.18em] text-muted uppercase">
-              {dict.common.brandBy}
-            </span>
-          </span>
+        <Link
+          href={localePath(locale, "/")}
+          className="flex items-center transition-opacity hover:opacity-95"
+          aria-label="SRAW Products - A Symbol of Purity and Trust"
+        >
+          <Image
+            src="/assets/logo-trimmed.png"
+            alt="SRAW Products"
+            width={160}
+            height={73}
+            priority
+            className="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 hover:scale-[1.02]"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

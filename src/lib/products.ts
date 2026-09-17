@@ -4,6 +4,12 @@ export type Variant = {
   sticks: string;
 };
 
+export type ProductImage = {
+  src: string;
+  alt: string;
+  label?: string;
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -21,6 +27,9 @@ export type Product = {
   bestseller?: boolean;
   colors: { base: string; accent: string; label: string };
   variants: Variant[];
+  image?: string;
+  images?: ProductImage[];
+  bannerImage?: string;
 };
 
 export const categories = [
@@ -37,12 +46,14 @@ const standardVariants: Variant[] = [
   { label: "Regular", price: 15, sticks: "~45 sticks" },
   { label: "Large", price: 25, sticks: "~80 sticks" },
   { label: "Family", price: 45, sticks: "~150 sticks" },
+  { label: "Zipper Pouch 90g", price: 70, sticks: "~110 sticks" },
 ];
 
 const premiumVariants: Variant[] = [
   { label: "Regular", price: 15, sticks: "~45 sticks" },
   { label: "Large", price: 25, sticks: "~80 sticks" },
   { label: "Family", price: 45, sticks: "~150 sticks" },
+  { label: "Zipper Pouch 90g", price: 70, sticks: "~110 sticks" },
 ];
 
 export const products: Product[] = [
@@ -63,6 +74,29 @@ export const products: Product[] = [
     bestseller: true,
     colors: { base: "#d62246", accent: "#fce0e6", label: "#8e1230" },
     variants: standardVariants,
+    image: "/assets/Sri kanth Rose Agarbatti Pouch Design.png",
+    images: [
+      {
+        src: "/assets/Sri kanth Rose Agarbatti Pouch Design.png",
+        alt: "Sri Kanth Gulaab Agarbatti Pouch",
+        label: "Pouch Pack",
+      },
+      {
+        src: "/assets/Rose Sticker Design.png",
+        alt: "Sri Kanth Rose Puja Dhoop Sticks Jar",
+        label: "Dhoop Jar",
+      },
+      {
+        src: "/assets/Sri kanth Rose Dhoop Pouch.png",
+        alt: "Sri Kanth Rose Dhoop Pouch",
+        label: "Dhoop Pouch",
+      },
+      {
+        src: "/assets/Slide 1.jpg",
+        alt: "Sri Kanth Complete Showcase",
+        label: "Temple Range",
+      },
+    ],
   },
   {
     slug: "chandan",
@@ -82,6 +116,29 @@ export const products: Product[] = [
     badge: "Most loved",
     colors: { base: "#d98324", accent: "#fbebd3", label: "#8f4e0d" },
     variants: standardVariants,
+    image: "/assets/Sri kanth Chandan Agarbatti Pouch Design.png",
+    images: [
+      {
+        src: "/assets/Sri kanth Chandan Agarbatti Pouch Design.png",
+        alt: "Sri Kanth Chandan Agarbatti Pouch",
+        label: "Pouch Pack",
+      },
+      {
+        src: "/assets/Chandan Sticker Design.png",
+        alt: "Sri Kanth Chandan Puja Dhoop Sticks Jar",
+        label: "Dhoop Jar",
+      },
+      {
+        src: "/assets/Sri kanth Chandan Dhoop Pouch.png",
+        alt: "Sri Kanth Chandan Dhoop Pouch",
+        label: "Dhoop Pouch",
+      },
+      {
+        src: "/assets/Slide 1.jpg",
+        alt: "Sri Kanth Chandan Collection",
+        label: "Collection",
+      },
+    ],
   },
   {
     slug: "lavender",
@@ -99,6 +156,24 @@ export const products: Product[] = [
     reviews: 289,
     colors: { base: "#6d4ac4", accent: "#e9e1fb", label: "#422a86" },
     variants: standardVariants,
+    image: "/assets/Sri kanth Lavender Agarbatti Pouch Design.png",
+    images: [
+      {
+        src: "/assets/Sri kanth Lavender Agarbatti Pouch Design.png",
+        alt: "Sri Kanth Lavender Agarbatti Pouch",
+        label: "Pouch Pack",
+      },
+      {
+        src: "/assets/Lavender Sticker Design.png",
+        alt: "Sri Kanth Lavender Puja Dhoop Sticks Jar",
+        label: "Dhoop Jar",
+      },
+      {
+        src: "/assets/Slide 1.jpg",
+        alt: "Sri Kanth Lavender Range",
+        label: "Range View",
+      },
+    ],
   },
   {
     slug: "mogra",
@@ -117,6 +192,29 @@ export const products: Product[] = [
     bestseller: true,
     colors: { base: "#1f8a5b", accent: "#d8f2e5", label: "#0f5c3c" },
     variants: standardVariants,
+    image: "/assets/Sri kanth Mogra Agarbatti Pouch Design.png",
+    images: [
+      {
+        src: "/assets/Sri kanth Mogra Agarbatti Pouch Design.png",
+        alt: "Sri Kanth Mogra Agarbatti Pouch",
+        label: "Pouch Pack",
+      },
+      {
+        src: "/assets/Mogra Sticker Design.png",
+        alt: "Sri Kanth Mogra Puja Dhoop Sticks Jar",
+        label: "Dhoop Jar",
+      },
+      {
+        src: "/assets/Sri kanth Mogra Dhoop Pouch.png",
+        alt: "Sri Kanth Mogra Dhoop Pouch",
+        label: "Dhoop Pouch",
+      },
+      {
+        src: "/assets/Slide 1.jpg",
+        alt: "Sri Kanth Mogra in Range",
+        label: "Range View",
+      },
+    ],
   },
   {
     slug: "neelkanth",
@@ -134,6 +232,30 @@ export const products: Product[] = [
     reviews: 198,
     colors: { base: "#1d63b8", accent: "#dce9fa", label: "#123f7a" },
     variants: standardVariants,
+    image: "/assets/Slide 9.jpg",
+    bannerImage: "/assets/Slide 9.jpg",
+    images: [
+      {
+        src: "/assets/Slide 9.jpg",
+        alt: "Neelkanth 4-in-1 Sugandhit Puja Agarbatti Kedarnath Shrine",
+        label: "Kedarnath Pack",
+      },
+      {
+        src: "/assets/Sri kanth GuggalDhoop Pouch.png",
+        alt: "Sri Kanth Guggal Dhoop Pouch",
+        label: "Guggal Blend",
+      },
+      {
+        src: "/assets/Sri kanth Loban Dhoop Pouch.png",
+        alt: "Sri Kanth Loban Dhoop Pouch",
+        label: "Loban Blend",
+      },
+      {
+        src: "/assets/Guggal Sticker Design.png",
+        alt: "Guggal Puja Dhoop Jar",
+        label: "Guggal Jar",
+      },
+    ],
   },
   {
     slug: "black-premium-3-in-1",
@@ -152,6 +274,25 @@ export const products: Product[] = [
     badge: "Premium",
     colors: { base: "#241c2e", accent: "#dcd6e4", label: "#0e0a14" },
     variants: premiumVariants,
+    image: "/assets/Slide 2.jpg",
+    bannerImage: "/assets/Slide 2.jpg",
+    images: [
+      {
+        src: "/assets/Slide 2.jpg",
+        alt: "Sri Kanth 3-in-1 Premium Agarbatti Mandapam Display",
+        label: "Premium Pack",
+      },
+      {
+        src: "/assets/Sri kanth Agarbatti Pouch Design.png",
+        alt: "Sri Kanth Agarbatti Pouch",
+        label: "Pouch Pack",
+      },
+      {
+        src: "/assets/Slide 1.jpg",
+        alt: "Sri Kanth Agarbatti Range",
+        label: "Full Range",
+      },
+    ],
   },
   {
     slug: "srikanth-3-in-1",
@@ -169,6 +310,25 @@ export const products: Product[] = [
     reviews: 310,
     colors: { base: "#e2590b", accent: "#fce6d4", label: "#9a3a05" },
     variants: premiumVariants,
+    image: "/assets/Sri kanth Agarbatti Pouch Design.png",
+    bannerImage: "/assets/Slide 2.jpg",
+    images: [
+      {
+        src: "/assets/Sri kanth Agarbatti Pouch Design.png",
+        alt: "Sri Kanth 3-in-1 Agarbatti Pouch",
+        label: "Pouch Pack",
+      },
+      {
+        src: "/assets/Slide 2.jpg",
+        alt: "Sri Kanth 3-in-1 Devotional Mandapam Display",
+        label: "Temple Display",
+      },
+      {
+        src: "/assets/Slide 1.jpg",
+        alt: "Sri Kanth Product Showcase",
+        label: "Product Line",
+      },
+    ],
   },
   {
     slug: "total-out",
@@ -190,6 +350,20 @@ export const products: Product[] = [
       { label: "Regular", price: 15, sticks: "~30 sticks" },
       { label: "Large", price: 25, sticks: "~60 sticks" },
     ],
+    image: "/assets/Slide 8.jpg",
+    bannerImage: "/assets/Slide 8.jpg",
+    images: [
+      {
+        src: "/assets/Slide 8.jpg",
+        alt: "Total Out Mosquito Repellent Sticks",
+        label: "Banner View",
+      },
+      {
+        src: "/assets/Slide 1.jpg",
+        alt: "Total Out in SRAW Product Range",
+        label: "Range View",
+      },
+    ],
   },
   {
     slug: "sraw-dhoop-batti-cone",
@@ -210,6 +384,14 @@ export const products: Product[] = [
       { label: "Box of 12", price: 15, sticks: "12 cones" },
       { label: "Box of 24", price: 25, sticks: "24 cones" },
     ],
+    image: "/assets/Slide 6.jpg",
+    images: [
+      {
+        src: "/assets/Slide 6.jpg",
+        alt: "Sri Kanth Dhoop Collection",
+        label: "Dhoop Range",
+      },
+    ],
   },
   {
     slug: "srikanth-premium-dhoop",
@@ -226,7 +408,161 @@ export const products: Product[] = [
     rating: 4.8,
     reviews: 264,
     colors: { base: "#c21d2c", accent: "#fbdddf", label: "#7c1119" },
-    variants: [{ label: "Pack of 12", price: 15, sticks: "12 dhoop sticks" }],
+    variants: [
+      { label: "Pouch of 20", price: 35, sticks: "20 dhoop sticks" },
+      { label: "Master Box (12 Pouches)", price: 390, sticks: "240 dhoop sticks" },
+    ],
+    image: "/assets/Sri kanth Chandan Dhoop Pouch.png",
+    bannerImage: "/assets/Slide 6.jpg",
+    images: [
+      {
+        src: "/assets/Sri kanth Chandan Dhoop Pouch.png",
+        alt: "Sri Kanth Chandan Dhoop Pouch",
+        label: "Chandan Dhoop",
+      },
+      {
+        src: "/assets/Sri kanth GuggalDhoop Pouch.png",
+        alt: "Sri Kanth Guggal Dhoop Pouch",
+        label: "Guggal Dhoop",
+      },
+      {
+        src: "/assets/Sri kanth Loban Dhoop Pouch.png",
+        alt: "Sri Kanth Loban Dhoop Pouch",
+        label: "Loban Dhoop",
+      },
+      {
+        src: "/assets/Sri kanth Mogra Dhoop Pouch.png",
+        alt: "Sri Kanth Mogra Dhoop Pouch",
+        label: "Mogra Dhoop",
+      },
+      {
+        src: "/assets/Sri kanth Rose Dhoop Pouch.png",
+        alt: "Sri Kanth Rose Dhoop Pouch",
+        label: "Rose Dhoop",
+      },
+      {
+        src: "/assets/Slide 6.jpg",
+        alt: "Sri Kanth Wholesale Dhoop Box & Master Carton",
+        label: "Wholesale Pack",
+      },
+    ],
+  },
+  {
+    slug: "srikanth-puja-dhoop-jar",
+    name: "Srikanth Puja Dhoop Sticks (Premium Jar)",
+    nameHi: "श्रीकंठ पूजा धूप स्टिक्स (प्रीमियम जार)",
+    subtitle: "Puja Dhoop Sticks",
+    subtitleHi: "पूजा धूप बत्ती",
+    category: "Dhoop",
+    tagline: "Thick, slow-burning dhoop sticks in airtight golden-lid jars.",
+    description:
+      "Handcrafted dhoop sticks packed in premium airtight glass jars with golden lids. Each stick releases a soothing, long-lasting aroma of authentic temple resins and pure floral extracts.",
+    notes: ["Chandan", "Guggal", "Loban", "Mogra", "Rose", "Lavender"],
+    burnTime: "35–45 minutes per stick",
+    rating: 4.9,
+    reviews: 188,
+    badge: "Premium Jar",
+    bestseller: true,
+    colors: { base: "#b86b1f", accent: "#faebd7", label: "#7a410b" },
+    variants: [
+      { label: "Single Jar (40 Sticks)", price: 85, sticks: "~40 dhoop sticks" },
+      { label: "Assorted Twin Pack", price: 160, sticks: "~80 dhoop sticks" },
+      { label: "Complete Box of 6 Jars", price: 475, sticks: "~240 dhoop sticks" },
+    ],
+    image: "/assets/Chandan Sticker Design.png",
+    bannerImage: "/assets/Slide 5.jpg",
+    images: [
+      {
+        src: "/assets/Chandan Sticker Design.png",
+        alt: "Chandan Puja Dhoop Jar",
+        label: "Chandan Jar",
+      },
+      {
+        src: "/assets/Guggal Sticker Design.png",
+        alt: "Guggal Puja Dhoop Jar",
+        label: "Guggal Jar",
+      },
+      {
+        src: "/assets/Lobaan Sticker Design.png",
+        alt: "Loban Puja Dhoop Jar",
+        label: "Loban Jar",
+      },
+      {
+        src: "/assets/Mogra Sticker Design.png",
+        alt: "Mogra Puja Dhoop Jar",
+        label: "Mogra Jar",
+      },
+      {
+        src: "/assets/Rose Sticker Design.png",
+        alt: "Rose Puja Dhoop Jar",
+        label: "Rose Jar",
+      },
+      {
+        src: "/assets/Lavender Sticker Design.png",
+        alt: "Lavender Puja Dhoop Jar",
+        label: "Lavender Jar",
+      },
+      {
+        src: "/assets/Slide 5.jpg",
+        alt: "Sri Kanth Puja Dhoop Sticks Waterfall Display",
+        label: "Jars Collection",
+      },
+    ],
+  },
+  {
+    slug: "srikanth-dhoop-pouch",
+    name: "Srikanth Dhoop Zipper Pouch",
+    nameHi: "श्रीकंठ धूप ज़िपर पाउच",
+    subtitle: "Dhoop Zipper Pack",
+    subtitleHi: "धूप पाउच",
+    category: "Dhoop",
+    tagline: "Moisture-lock zipper pouch with 20 pure dhoop sticks.",
+    description:
+      "Pure organic dhoop sticks sealed in moisture-proof reclosable zipper pouches. Formulated to retain natural oils and provide a clean, divine smoke for pooja and meditation.",
+    notes: ["Chandan", "Guggal", "Loban", "Rose", "Mogra"],
+    burnTime: "25–30 minutes per stick",
+    rating: 4.8,
+    reviews: 215,
+    colors: { base: "#d95f02", accent: "#fedec9", label: "#8a3c01" },
+    variants: [
+      { label: "Single Pouch (20 Sticks)", price: 35, sticks: "20 sticks" },
+      { label: "Pack of 3 Pouches", price: 99, sticks: "60 sticks" },
+      { label: "Family Bundle of 5 Fragrances", price: 165, sticks: "100 sticks" },
+    ],
+    image: "/assets/Sri kanth Chandan Dhoop Pouch.png",
+    bannerImage: "/assets/Slide 6.jpg",
+    images: [
+      {
+        src: "/assets/Sri kanth Chandan Dhoop Pouch.png",
+        alt: "Sri Kanth Chandan Dhoop Pouch",
+        label: "Chandan",
+      },
+      {
+        src: "/assets/Sri kanth GuggalDhoop Pouch.png",
+        alt: "Sri Kanth Guggal Dhoop Pouch",
+        label: "Guggal",
+      },
+      {
+        src: "/assets/Sri kanth Loban Dhoop Pouch.png",
+        alt: "Sri Kanth Loban Dhoop Pouch",
+        label: "Loban",
+      },
+      {
+        src: "/assets/Sri kanth Mogra Dhoop Pouch.png",
+        alt: "Sri Kanth Mogra Dhoop Pouch",
+        label: "Mogra",
+      },
+      {
+        src: "/assets/Sri kanth Rose Dhoop Pouch.png",
+        alt: "Sri Kanth Rose Dhoop Pouch",
+        label: "Rose",
+      },
+      {
+        src: "/assets/Slide 6.jpg",
+        alt: "Sri Kanth Dhoop Boxes & Wholesale Carton",
+        label: "Wholesale Pack",
+      },
+    ],
   },
   {
     slug: "srikanth-deluxe-premium-dhoop",
@@ -245,6 +581,35 @@ export const products: Product[] = [
     badge: "Deluxe",
     colors: { base: "#3a2e8c", accent: "#e1def7", label: "#241c5c" },
     variants: [{ label: "Pack of 12", price: 15, sticks: "12 dhoop sticks" }],
+    image: "/assets/Slide 5.jpg",
+    bannerImage: "/assets/Slide 5.jpg",
+    images: [
+      {
+        src: "/assets/Slide 5.jpg",
+        alt: "Sri Kanth Puja Dhoop Sticks Jars Collection",
+        label: "Jars Collection",
+      },
+      {
+        src: "/assets/Chandan Sticker Design.png",
+        alt: "Chandan Puja Dhoop Jar",
+        label: "Chandan Jar",
+      },
+      {
+        src: "/assets/Guggal Sticker Design.png",
+        alt: "Guggal Puja Dhoop Jar",
+        label: "Guggal Jar",
+      },
+      {
+        src: "/assets/Lobaan Sticker Design.png",
+        alt: "Loban Puja Dhoop Jar",
+        label: "Loban Jar",
+      },
+      {
+        src: "/assets/Slide 6.jpg",
+        alt: "Sri Kanth Dhoop Assortment",
+        label: "Dhoop Assortment",
+      },
+    ],
   },
 ];
 

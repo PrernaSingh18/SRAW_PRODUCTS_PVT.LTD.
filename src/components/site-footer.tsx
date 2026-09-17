@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/products";
 import { localePath, type Dictionary } from "@/lib/i18n";
@@ -12,12 +13,19 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
     <footer className="mt-24 border-t border-line bg-sand">
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div>
-          <span className="font-display text-xl font-semibold">
-            {isHi ? site.brandHi : site.brand}
-          </span>
-          <span className={`ml-2 text-lg text-brand ${isHi ? "" : "font-hindi"}`}>
-            {isHi ? site.brand : site.brandHi}
-          </span>
+          <Link
+            href={localePath(locale, "/")}
+            className="inline-block rounded-xl border border-line bg-white p-2.5 shadow-xs transition-transform hover:scale-105"
+            aria-label="SRAW Products"
+          >
+            <Image
+              src="/assets/logo-trimmed.png"
+              alt="SRAW Products"
+              width={160}
+              height={73}
+              className="h-12 w-auto object-contain"
+            />
+          </Link>
           <p className="mt-3 font-hindi text-sm text-ink-soft">
             {dict.footer.taglineAccent}
           </p>

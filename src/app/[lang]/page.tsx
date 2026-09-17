@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/product-card";
-import { ProductArt } from "@/components/product-art";
+import { HeroSlider } from "@/components/hero-slider";
+import { FragranceFinder } from "@/components/fragrance-finder";
+import { PoojaSanctuary3D } from "@/components/pooja-sanctuary-3d";
+import { TestimonialsInteractive } from "@/components/testimonials-interactive";
 import { products } from "@/lib/products";
 import { format, getDictionary, localePath } from "@/lib/i18n";
 import { isLocale } from "@/lib/i18n/config";
@@ -17,73 +21,37 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const bestsellers = products
     .filter((p) => p.bestseller)
     .map((p) => localizeProduct(p, lang));
-  const hero = products.find((p) => p.slug === "chandan")!;
 
   return (
     <>
-      <section className="border-b border-line bg-sand">
-        <div className="container-page grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
-          <div className="animate-rise">
-            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1.5 text-xs font-semibold tracking-[0.16em] text-brand uppercase">
+      {/* Interactive Hero Banner Slider showcasing Slides 1-9 */}
+      <section className="border-b border-line">
+        <HeroSlider lang={lang} dict={dict} />
+      </section>
+
+      {/* Brand Heritage & Trust Statistics */}
+      <section className="border-b border-line bg-sand py-8">
+        <div className="container-page flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-xs font-semibold tracking-[0.16em] text-brand uppercase">
               {lang === "hi" ? site.trademarkHi : site.trademark}
             </span>
-            <h1
-              className={`mt-6 font-display text-4xl leading-[1.1] font-semibold sm:text-5xl lg:text-6xl ${
-                lang === "hi" ? "font-hindi" : ""
-              }`}
-            >
-              {t.heroTitle}
-            </h1>
-            {lang === "en" ? (
-              <p className="mt-4 font-hindi text-xl text-brand sm:text-2xl">
-                {t.heroAccent}
-              </p>
-            ) : null}
-            <p className="mt-5 max-w-xl text-base text-ink-soft sm:text-lg">{t.heroBody}</p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={localePath(lang, "/shop")}
-                className="rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
-              >
-                {dict.common.shopAll}
-              </Link>
-              <Link
-                href={localePath(lang, "/dealership")}
-                className="rounded-lg border border-ink px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-white"
-              >
-                {dict.common.becomeDealer}
-              </Link>
-            </div>
-
-            <dl className="mt-12 grid grid-cols-2 gap-6 border-t border-line pt-8 sm:grid-cols-4">
-              {t.stats.map((s) => (
-                <div key={s.label}>
-                  <dt className="font-display text-2xl font-semibold text-brand">
-                    {s.value}
-                  </dt>
-                  <dd className="mt-1 text-xs tracking-[0.12em] text-muted uppercase">
-                    {s.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <p className="mt-2 text-sm text-ink-soft">
+              {t.heroBody}
+            </p>
           </div>
-
-          <div className="relative">
-            <div className="overflow-hidden rounded-card border border-line bg-white">
-              <ProductArt product={hero} large className="w-full" />
-            </div>
-            <div className="absolute -bottom-6 left-6 hidden animate-sway rounded-card border border-line bg-white p-5 sm:block">
-              <p className="text-xs tracking-[0.16em] text-muted uppercase">
-                {t.heroCardLabel}
-              </p>
-              <p className="mt-1 font-display text-lg font-semibold">{t.heroCardProduct}</p>
-              <p className="text-sm text-ink-soft">
-                <span className="text-gold">★</span> 4.9 · 738 {dict.common.reviews}
-              </p>
-            </div>
-          </div>
+          <dl className="grid grid-cols-2 sm:grid-cols-4 gap-6 shrink-0 border-t md:border-t-0 md:border-l border-line pt-4 md:pt-0 md:pl-8">
+            {t.stats.map((s) => (
+              <div key={s.label}>
+                <dt className="font-display text-2xl font-semibold text-brand">
+                  {s.value}
+                </dt>
+                <dd className="mt-0.5 text-xs tracking-[0.12em] text-muted uppercase">
+                  {s.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -135,6 +103,12 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           ))}
         </div>
       </section>
+
+      {/* Interactive Pooja & Fragrance Ritual Finder */}
+      <FragranceFinder locale={lang} dict={dict} />
+
+      {/* Interactive 3D Pooja Sanctum & Incense Experience */}
+      <PoojaSanctuary3D locale={lang} dict={dict} />
 
       <section className="border-y border-line bg-sand py-20">
         <div className="container-page grid gap-12 lg:grid-cols-2">
@@ -192,8 +166,14 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
       <section className="border-y border-line bg-sand py-20">
         <div className="container-page grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="overflow-hidden rounded-card border border-line bg-white">
-            <ProductArt product={hero} view="carton" className="w-full" />
+          <div className="relative aspect-[16/11] w-full overflow-hidden rounded-card border border-line bg-white shadow-sm">
+            <Image
+              src="/assets/Slide 6.jpg"
+              alt="Sri Kanth Wholesale Master Cartons & Dhoop Boxes"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-500 hover:scale-105"
+            />
           </div>
 
           <div>
@@ -239,27 +219,8 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      <section className="border-y border-line bg-clay py-20">
-        <div className="container-page">
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-            {t.testimonialsTitle}
-          </h2>
-          <div className="stagger mt-10 grid gap-6 md:grid-cols-3">
-            {t.testimonials.map((item) => (
-              <figure key={item.name} className="rounded-card border border-line bg-white p-7">
-                <div className="text-sm text-gold">★★★★★</div>
-                <blockquote className="mt-4 text-sm leading-relaxed text-ink-soft">
-                  “{item.quote}”
-                </blockquote>
-                <figcaption className="mt-5 border-t border-line pt-4 text-sm">
-                  <span className="font-semibold">{item.name}</span>
-                  <span className="block text-xs text-muted">{item.role}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Interactive Customer Testimonials & Reviews */}
+      <TestimonialsInteractive locale={lang} title={t.testimonialsTitle} />
 
       <section className="border-b border-line bg-ink py-16 text-center text-white">
         <div className="container-page">

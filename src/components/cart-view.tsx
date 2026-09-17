@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCart } from "@/components/cart-provider";
-import { formatINR } from "@/lib/products";
+import { formatINR, getProduct } from "@/lib/products";
 import { format, localePath, type Dictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n/config";
 import { site } from "@/lib/site";
@@ -49,20 +50,37 @@ export function CartView({ locale, dict }: { locale: Locale; dict: Dictionary })
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
           <div className="overflow-hidden rounded-card border border-line">
             <ul>
-              {items.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex flex-wrap items-center gap-4 border-b border-line p-5 last:border-0"
-                >
-                  <div className="min-w-48 flex-1">
-                    <Link
-                      href={localePath(locale, `/shop/${item.slug}`)}
-                      className="font-display text-base font-semibold hover:text-brand"
-                    >
-                      {item.name}
-                    </Link>
-                    <p className="mt-1 text-xs text-muted">{item.variant}</p>
-                  </div>
+              {items.map((item) => {
+                const prod = getProduct(item.slug);
+                return (
+                  <li
+                    key={item.id}
+                    className="flex flex-wrap items-center gap-4 border-b border-line p-5 last:border-0"
+                  >
+                    {prod?.image ? (
+                      <Link
+                        href={localePath(locale, `/shop/${item.slug}`)}
+                        className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-line bg-[#faf7f2] p-1"
+                      >
+                        <Image
+                          src={prod.image}
+                          alt={item.name}
+                          fill
+                          sizes="64px"
+                          className="object-contain p-1"
+                        />
+                      </Link>
+                    ) : null}
+
+                    <div className="min-w-48 flex-1">
+                      <Link
+                        href={localePath(locale, `/shop/${item.slug}`)}
+                        className="font-display text-base font-semibold hover:text-brand"
+                      >
+                        {item.name}
+                      </Link>
+                      <p className="mt-1 text-xs text-muted">{item.variant}</p>
+                    </div>
 
                   <div className="flex items-center rounded-lg border border-line">
                     <button
@@ -95,8 +113,9 @@ export function CartView({ locale, dict }: { locale: Locale; dict: Dictionary })
                   >
                     {t.remove}
                   </button>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
             <div className="flex items-center justify-between bg-sand px-5 py-4">
               <button

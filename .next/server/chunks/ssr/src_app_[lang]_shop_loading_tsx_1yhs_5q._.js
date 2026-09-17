@@ -1,3 +1,0 @@
-module.exports=[48800,a=>{"use strict";var b=a.i(7997),c=a.i(85277),d=a.i(42391),e=a.i(63711);async function f(){let a=(0,e.getDictionary)((0,e.resolveLocale)(await (0,c.lang)()));return(0,b.jsxs)("div",{className:"container-page py-14",children:[(0,b.jsx)(d.IncenseLoader,{label:a.loader.shop,labelAccent:a.loader.shopAccent}),(0,b.jsx)("div",{className:"mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",children:Array.from({length:8}).map((a,c)=>(0,b.jsx)(d.ProductCardSkeleton,{},c))})]})}a.s(["default",0,f])},56482,function(a){a.n(a.i(48800))}];
-
-//# sourceMappingURL=src_app_%5Blang%5D_shop_loading_tsx_1yhs_5q._.js.map
